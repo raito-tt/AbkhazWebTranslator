@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Абхазский Переводчик Чисел</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="glass-container">
+        <header>
+            <h1 class="gradient-text">Аҧсуа Переводчик</h1>
+            <p class="subtitle">Интеллектуальный перевод чисел на абхазский язык</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="direct">Прямой</button>
+            <button class="tab-btn" data-tab="ordinal">Порядковый</button>
+            <button class="tab-btn" data-tab="reverse">Обратный</button>
+            <button class="tab-btn" id="settings-tab-btn" data-tab="settings">Настройки</button>
+        </nav>
+
+        <section id="direct" class="tab-content active">
+            <div class="input-group">
+                <label for="direct-num">Введите число (0 - 999 999)</label>
+                <input type="number" id="direct-num" placeholder="Напр. 12345" min="0" max="999999">
+            </div>
+            
+            <div class="options">
+                <div class="toggle-group">
+                    <label class="switch">
+                        <input type="checkbox" id="direct-animate">
+                        <span class="slider"></span>
+                    </label>
+                    <span>Одушевленное (люди)</span>
+                </div>
+            </div>
+
+            <button class="primary-btn" onclick="translateDirect()">Перевести</button>
+            
+            <div class="result-box" id="direct-result-box">
+                <p class="result-label">Результат:</p>
+                <div class="result-text" id="direct-result">—</div>
+            </div>
+        </section>
+
+        <section id="ordinal" class="tab-content">
+            <div class="input-group">
+                <label for="ord-num">Введите количественное число</label>
+                <input type="number" id="ord-num" placeholder="Напр. 1" min="0" max="999999">
+            </div>
+
+            <button class="primary-btn" onclick="translateOrdinal()">Создать порядковое</button>
+            
+            <div class="result-box" id="ord-result-box">
+                <p class="result-label">Результат:</p>
+                <div class="result-text" id="ord-result">—</div>
+            </div>
+        </section>
+
+        <section id="reverse" class="tab-content">
+            <div class="input-group">
+                <label for="rev-text">Введите числительное текстом</label>
+                <input type="text" id="rev-text" placeholder="Напр. ҩажәи хәба">
+            </div>
+
+            <button class="primary-btn" onclick="translateReverse()">Преобразовать в число</button>
+            
+            <div class="result-box" id="rev-result-box">
+                <p class="result-label">Результат:</p>
+                <div class="result-text" id="rev-result">—</div>
+            </div>
+        </section>
+
+        <section id="settings" class="tab-content">
+            <div class="input-group">
+                <label for="settings-json">Редактирование ключевых значений (JSON)</label>
+                <textarea id="settings-json" rows="15" style="width: 100%; background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px; font-family: monospace;"></textarea>
+            </div>
+
+            <button class="primary-btn" onclick="saveSettings()">Сохранить и применить</button>
+            
+            <div id="settings-status" style="margin-top: 10px; font-size: 0.9em;"></div>
+        </section>
+
+        <footer>
+            <p>© 2026 Разработано для дипломного проекта</p>
+        </footer>
+
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
